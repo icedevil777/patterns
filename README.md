@@ -1,2 +1,3 @@
 # patterns
-django, django rest patterns
+
+sudo -u postgres psql
