@@ -18,8 +18,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from snippets import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('my_auth.urls')),
-    path('api/', include('snippets.urls')),
+    path('my_auth_api/', include('my_auth.urls')),
+    path('snippets_api/', include('snippets.urls')),
 ]
