@@ -1,5 +1,5 @@
 from django.views.decorators.csrf import csrf_exempt
-from rest_framework import status, generics
+from rest_framework import status, generics, permissions
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from snippets.models import Snippet
@@ -20,6 +20,7 @@ class UserDetail(generics.RetrieveAPIView):
 class SnippetList(generics.ListCreateAPIView):
     queryset = Snippet.objects.all()
     serializer_class = SnippetSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
     def perform_create(self, serializer):
        serializer.save(owner=self.request.user)
